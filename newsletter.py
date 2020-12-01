@@ -78,4 +78,4 @@ if __name__ == '__main__':
     mails_names_file = 'mails.csv'
     text_mail_file = 'urodziny.docx'
     subject = '30 urodziny restauracji'
-    send_mail(from_, mail_password, directory, mails_names_file, text_mail_file, subject, 'logo.jpg', 'menu.pdf')
+    send_mail(from_, from_name, mail_password, directory, mails_names_file, text_mail_file, subject, 'logo.jpg', 'menu.pdf')
