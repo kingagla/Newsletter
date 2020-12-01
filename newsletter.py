@@ -27,7 +27,7 @@ def attach_pdf(message, directory, filename):
     message.attach(pdf_attachment)
 
 
-def send_mail(from_, mail_password, directory, mails_names_file, text_mail_file, subject, *attachments):
+def send_mail(from_, from_name, mail_password, directory, mails_names_file, text_mail_file, subject, *attachments):
     mails = pd.read_csv(os.path.join(directory, mails_names_file))
     for mail, name in mails.values:
         try:
@@ -43,7 +43,7 @@ def send_mail(from_, mail_password, directory, mails_names_file, text_mail_file,
             # create multi-part message and define each element
             message = MIMEMultipart()
             message['Subject'] = subject
-            message['From'] = f'Kinga Glabinska'
+            message['From'] = from_name
             message['To'] = mail
 
             # attach text of message
@@ -72,6 +72,7 @@ def send_mail(from_, mail_password, directory, mails_names_file, text_mail_file,
 
 if __name__ == '__main__':
     from_ = 'my_mail@gmail.com'
+    from_name = 'My name'
     mail_password = input('Please type your password: ')
     directory = './files'
     mails_names_file = 'mails.csv'
