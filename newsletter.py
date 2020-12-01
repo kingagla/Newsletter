@@ -31,7 +31,7 @@ def send_mail(from_, mail_password, directory, mails_names_file, text_mail_file,
     mails = pd.read_csv(os.path.join(directory, mails_names_file))
     for mail, name in mails.values:
         try:
-            # convert message to htm
+            # convert message to html
             f = open(os.path.join(directory, text_mail_file), 'rb')
             document = mammoth.convert_to_html(f)
             msg = (document.value.encode('utf8'))
